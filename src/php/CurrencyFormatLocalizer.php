@@ -41,7 +41,7 @@ class CurrencyFormatLocalizer {
         ],
         'IDR' => [
             'default_language' => 'ID',
-            'currency' => 'Indonesian Rupiah',
+            'currency' => 'Indonesian rupiah',
             'countries' => ['ID'],
             'language' => [
                 'ID' => [
@@ -52,12 +52,48 @@ class CurrencyFormatLocalizer {
                 ]
             ]
         ],
-        'KH' => [],
-        'LAK' => [],
-        'MM' => [],
+        'KHR' => [
+            'default_language' => 'KM',
+            'currency' => 'Cambodian riel',
+            'countries' => ['KH'],
+            'language' => [
+                'KM' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '###៛'
+                ]
+            ]
+        ],
+        'LAK' => [
+            'default_language' => 'LO',
+            'currency' => 'Lao kip',
+            'countries' => ['LA'],
+            'language' => [
+                'LO' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '₭###'
+                ]
+            ]
+        ],
+        'MMK' => [
+            'default_language' => 'MY',
+            'currency' => 'Myanmar kyat',
+            'countries' => ['MM'],
+            'language' => [
+                'MY' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'K###'
+                ]
+            ]
+        ],
         'MYR' => [
             'default_language' => 'MS',
-            'currency' => 'Malaysia Ringgit',
+            'currency' => 'Malaysian ringgit',
             'countries' => ['MY'],
             'language' => [
                 'MS' => [
@@ -68,7 +104,19 @@ class CurrencyFormatLocalizer {
                 ]
             ]
         ],
-        'PHP' => [],
+        'PHP' => [
+            'default_language' => 'EN',
+            'currency' => 'Philippine peso',
+            'countries' => ['PH'],
+            'language' => [
+                'EN' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '₱###'
+                ]
+            ]
+        ],
         'SGD' => [
             'default_language' => 'EN',
             'currency' => 'Singapore dollar',
@@ -97,7 +145,7 @@ class CurrencyFormatLocalizer {
                     'ts' => ',',
                     'dp' => '.',
                     'c' => 2,
-                    'f' => '฿###'
+                    'f' => '###฿'
                 ],
                 'TH' => [
                     'ts' => ',',
@@ -107,7 +155,19 @@ class CurrencyFormatLocalizer {
                 ]
             ]
         ],
-        'VND' => [],
+        'VND' => [
+            'default_language' => 'VI',
+            'currency' => 'Vietnamese đồng',
+            'countries' => ['VN'],
+            'language' => [
+                'VI' => [
+                    'ts' => '.',
+                    'dp' => ',',
+                    'c' => 0,
+                    'f' => '###₫'
+                ]
+            ]
+        ],
         // EAST ASIA
         'CNY' => [],
         'JPY' => [],
