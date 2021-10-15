@@ -169,10 +169,82 @@ class CurrencyFormatLocalizer {
             ]
         ],
         // EAST ASIA
-        'CNY' => [],
-        'JPY' => [],
-        'KRW' => [],
-        'TWD' => [],
+        'CNY' => [
+            'default_language' => 'ZH',
+            'currency' => 'Renminbi',
+            'countries' => ['CN'],
+            'language' => [
+                'EN' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '¥###'
+                ],
+                'ZH' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '###元'
+                ]
+            ]
+        ],
+        'JPY' => [
+            'default_language' => 'JA',
+            'currency' => 'Japanese yen',
+            'countries' => ['JP'],
+            'language' => [
+                'EN' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 0,
+                    'f' => '¥###'
+                ],
+                'JA' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 0,
+                    'f' => '###円'
+                ]
+            ]
+        ],
+        'KRW' => [
+            'default_language' => 'KO',
+            'currency' => 'Japanese yen',
+            'countries' => ['KR'],
+            'language' => [
+                'EN' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 0,
+                    'f' => '₩###'
+                ],
+                'KO' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 0,
+                    'f' => '###원'
+                ]
+            ]
+        ],
+        'TWD' => [
+            'default_language' => 'ZH',
+            'currency' => 'New Taiwan dollar',
+            'countries' => ['TW'],
+            'language' => [
+                'EN' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'NT$###'
+                ],
+                'ZH' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '###元'
+                ]
+            ]
+        ],
         // SOUTH ASIA
         'INR' => [],
         // MIDDLE EAST
