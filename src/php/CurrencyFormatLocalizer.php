@@ -188,6 +188,25 @@ class CurrencyFormatLocalizer {
                 ]
             ]
         ],
+        'HKD' => [
+            'default_language' => 'EN',
+            'currency' => 'Hong Kong dollar',
+            'countries' => ['HK'],
+            'language' => [
+                'EN' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'HK$###'
+                ],
+                'ZH' => [
+                    'ts' => ',',
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '###元'
+                ]
+            ]
+        ],
         'JPY' => [
             'default_language' => 'JA',
             'currency' => 'Japanese yen',
@@ -209,7 +228,7 @@ class CurrencyFormatLocalizer {
         ],
         'KRW' => [
             'default_language' => 'KO',
-            'currency' => 'Japanese yen',
+            'currency' => 'Korean won',
             'countries' => ['KR'],
             'language' => [
                 'EN' => [
@@ -249,15 +268,112 @@ class CurrencyFormatLocalizer {
         'INR' => [],
         // MIDDLE EAST
         // EUROPE
-        'EUR' => [],
-        'GBP' => [],
+        'CHF' => [
+            'default_language' => 'EN',
+            'currency' => 'Swiss franc',
+            'countries' => ['CH'],
+            'language' => [
+                'EN' => [
+                    'ts' => "’",
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'fr.###'
+                ]
+            ]
+        ],
+        'EUR' => [
+            'default_language' => 'DE',
+            'currency' => 'Euro',
+            'countries' => ['PT', 'ES', 'FR', 'DE', 'IT'],
+            'language' => [
+                'DE' => [
+                    'ts' => ".",
+                    'dp' => ',',
+                    'c' => 2,
+                    'f' => '£###'
+                ],
+                'FR' => [
+                    'ts' => " ",
+                    'dp' => ',',
+                    'c' => 2,
+                    'f' => '£###'
+                ]
+            ]
+        ],
+        'GBP' => [
+            'default_language' => 'EN',
+            'currency' => 'Pound sterling',
+            'countries' => ['GB'],
+            'language' => [
+                'EN' => [
+                    'ts' => ",",
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '£###'
+                ]
+            ]
+        ],
         // NORTH AMERICA
-        'CAD' => [],
-        'USD' => [],
+        'CAD' => [
+            'default_language' => 'EN',
+            'currency' => 'Canadian dollar',
+            'countries' => ['CA'],
+            'language' => [
+                'EN' => [
+                    'ts' => ",",
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'C$###'
+                ],
+                'FR' => [
+                    'ts' => " ",
+                    'dp' => ',',
+                    'c' => 2,
+                    'f' => 'C$###'
+                ]
+            ]
+        ],
+        'USD' => [
+            'default_language' => 'EN',
+            'currency' => 'United States dollar',
+            'countries' => ['US'],
+            'language' => [
+                'EN' => [
+                    'ts' => ",",
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => '$###'
+                ]
+            ]
+        ],
         // SOUTH AMERICA
         // OCEANIA
-        'AUD' => [],
-        'NZD' => [],
+        'AUD' => [
+            'default_language' => 'EN',
+            'currency' => 'Australian dollar',
+            'countries' => ['AU'],
+            'language' => [
+                'EN' => [
+                    'ts' => ",",
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'A$###'
+                ]
+            ]
+        ],
+        'NZD' => [
+            'default_language' => 'EN',
+            'currency' => 'New Zealand dollar',
+            'countries' => ['NZ'],
+            'language' => [
+                'EN' => [
+                    'ts' => ",",
+                    'dp' => '.',
+                    'c' => 2,
+                    'f' => 'NZ$###'
+                ]
+            ]
+        ],
     ];
 
     /**
@@ -315,5 +431,14 @@ class CurrencyFormatLocalizer {
             }
         }
         return $list;
+    }
+
+    /**
+     * Return the config
+     * @return array[]
+     */
+    public function get_config()
+    {
+        return $this->currencies;
     }
 }
