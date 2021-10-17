@@ -391,6 +391,12 @@ class CurrencyFormatLocalizer {
         {
             if (isset($this->currencies[$currency_code]))
             {
+                $prefix = '';
+                if (0 > $amount)
+                {
+                    $amount = abs($amount);
+                    $prefix = '- ';
+                }
                 if (self::LANGUAGE_ISO == $language)
                 {
                     return $currency_code . self::STR_SPACE . number_format($amount, self::INT_TWO, self::STR_DOT, self::STR_COMMA);
@@ -405,7 +411,7 @@ class CurrencyFormatLocalizer {
                 $decimal_point = $format[self::KEY_DECIMAL_POINT];
                 $decimals = $format[self::KEY_DECIMALS];
                 $string = $format[self::KEY_FORMAT_STRING];
-                return str_replace(self::STR_PLACEHOLDER, number_format($amount, $decimals, $decimal_point, $thousand_sep), $string);
+                return $prefix . str_replace(self::STR_PLACEHOLDER, number_format($amount, $decimals, $decimal_point, $thousand_sep), $string);
             } else
             {
                 return self::ERROR_CURRENCY_NOT_SUPPORTED;

@@ -6,6 +6,7 @@ if (empty($amount))
 {
     $amount = 9876543.21;
 }
+$amount = floatval($amount);
 $supported_locales = $currency->get_currencies_with_languages();
 ?>
 <html>
