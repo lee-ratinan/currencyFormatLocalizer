@@ -356,18 +356,48 @@
                 }
             },
         };
+        let error_messages = {
+            'E001': '[INVALID AMOUNT]',
+            'E002': '[INVALID CURRENCY]'
+        };
         let settings = $.extend({
             currency_code: '',
             language: '',
             amount: 0
         }, options);
         return this.each(function () {
-
-            // if (isNaN(date_object.getTime()) || date_string !== date('Y-m-d', date_object.getTime() / 1000)) {
-            //     $(this).html(error_messages['E001']);
-            // } else {
-            //     formatDate($(this), calendar_code, locale_code, format_code, date_object);
-            // }
+            let currency = $(this).attr('data-currency') || settings.currency_code,
+                language = $(this).attr('data-language') || settings.language,
+                amount = $(this).attr('data-amount');
+            if ( ! isNaN(amount) && ! isNaN(parseFloat(amount)))
+            {
+                if (undefined !== currencies[currency])
+                {
+                    let prefix = '',
+                        amount = parseFloat(amount);
+                    if (0 > amount)
+                    {
+                        amount = Number.abs(amount);
+                        prefix = '- ';
+                    }
+                    if ('ISO' === language)
+                    {
+                        $(this).html(currency+' '+number_format(amount, 2, '.', ','));
+                    }
+                    if (undefined === currencies[currency]['language'][language])
+                    {
+                        language = currencies[currency].default_language;
+                    }
+                    let config = currencies[currency]['language'][language],
+                        format = config.f,
+                        str_amount = number_format(amount, config.c, config.dp, config.ts);
+                    $(this).html(format.replace('###', str_amount));
+                } else {
+                    $(this).html(error_messages['E002']);
+                }
+            } else {
+                $(this).html(error_messages['E001']);
+            }
         });
         let number_format = function (number, decimals, decPoint, thousandsSep) {
             // eslint-disable-line camelcase
