@@ -12,15 +12,9 @@
           <tr>
             <td><?= $cc ?></td>
             <td><?= $lg ?></td>
-            <td><span class="test-currency" data-currency="<?= $cc ?>" data-language="<?= $lg ?>"
-                      data-amount="<?= $amount ?>"></span></td>
+            <td><?= $currency->format($cc, $lg, $amount) ?></td>
           </tr>
           <?php endforeach; ?>
       <?php endforeach; ?>
   </tbody>
 </table>
-<script>
-    $(function () {
-        $('.test-currency').currencyFormatLocalizer();
-    });
-</script>
