@@ -362,43 +362,8 @@
         };
         let settings = $.extend({
             currency_code: '',
-            language: '',
-            amount: 0
+            language: ''
         }, options);
-        return this.each(function () {
-            let currency = $(this).attr('data-currency') || settings.currency_code,
-                language = $(this).attr('data-language') || settings.language,
-                amount = $(this).attr('data-amount');
-            if ( ! isNaN(amount) && ! isNaN(parseFloat(amount)))
-            {
-                if (undefined !== currencies[currency])
-                {
-                    let prefix = '',
-                        amount = parseFloat(amount);
-                    if (0 > amount)
-                    {
-                        amount = Number.abs(amount);
-                        prefix = '- ';
-                    }
-                    if ('ISO' === language)
-                    {
-                        $(this).html(currency+' '+number_format(amount, 2, '.', ','));
-                    }
-                    if (undefined === currencies[currency]['language'][language])
-                    {
-                        language = currencies[currency].default_language;
-                    }
-                    let config = currencies[currency]['language'][language],
-                        format = config.f,
-                        str_amount = number_format(amount, config.c, config.dp, config.ts);
-                    $(this).html(format.replace('###', str_amount));
-                } else {
-                    $(this).html(error_messages['E002']);
-                }
-            } else {
-                $(this).html(error_messages['E001']);
-            }
-        });
         let number_format = function (number, decimals, decPoint, thousandsSep) {
             // eslint-disable-line camelcase
             //  discuss at: https://locutus.io/php/number_format/
@@ -482,6 +447,40 @@
 
             return s.join(dec)
         }
+        return this.each(function () {
+            let currency = $(this).attr('data-currency') || settings.currency_code,
+                language = $(this).attr('data-language') || settings.language,
+                amount = $(this).attr('data-amount');
+            if ( ! isNaN(amount) && ! isNaN(parseFloat(amount)))
+            {
+                if (undefined !== currencies[currency])
+                {
+                    let prefix = '';
+                    amount = parseFloat(amount);
+                    if (0 > amount)
+                    {
+                        amount = Number.abs(amount);
+                        prefix = '- ';
+                    }
+                    if ('ISO' === language)
+                    {
+                        $(this).html(currency+' '+number_format(amount, 2, '.', ','));
+                    }
+                    if (undefined === currencies[currency]['language'][language])
+                    {
+                        language = currencies[currency].default_language;
+                    }
+                    let config = currencies[currency]['language'][language],
+                        format = config.f,
+                        str_amount = number_format(amount, config.c, config.dp, config.ts);
+                    $(this).html(prefix+format.replace('###', str_amount));
+                } else {
+                    $(this).html(error_messages['E002']);
+                }
+            } else {
+                $(this).html(error_messages['E001']);
+            }
+        });
     };
 }(jQuery));
 
