@@ -459,7 +459,7 @@
                     amount = parseFloat(amount);
                     if (0 > amount)
                     {
-                        amount = Number.abs(amount);
+                        amount = Math.abs(amount);
                         prefix = '- ';
                     }
                     if ('ISO' === language)
