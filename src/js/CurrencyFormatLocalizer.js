@@ -358,7 +358,7 @@
         };
         let error_messages = {
             'E001': '[INVALID AMOUNT]',
-            'E002': '[INVALID CURRENCY]'
+            'E002': '[CURRENCY NOT SUPPORTED]'
         };
         let settings = $.extend({
             currency_code: '',
@@ -483,9 +483,3 @@
         });
     };
 }(jQuery));
-
-
-
-
-
-
