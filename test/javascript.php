@@ -21,6 +21,6 @@
 </table>
 <script>
     $(function () {
-        $('.test-currency').currencyFormatLocalizer();
+        $('.test-currency').CurrencyFormatLocalizer();
     });
 </script>

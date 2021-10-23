@@ -4,7 +4,7 @@
  * https://github.com/lee-ratinan/currencyFormatLocalizer
  */
 (function ($) {
-    $.fn.currencyFormatLocalizer = function (options) {
+    $.fn.CurrencyFormatLocalizer = function (options) {
         let currencies = {
             // ASEAN
             'BND': {
