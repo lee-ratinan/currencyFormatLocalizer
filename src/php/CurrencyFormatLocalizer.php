@@ -250,7 +250,6 @@ class CurrencyFormatLocalizer {
             ]
         ],
         // SOUTH ASIA
-        'INR' => [],
         // MIDDLE EAST
         // EUROPE
         'CHF' => [

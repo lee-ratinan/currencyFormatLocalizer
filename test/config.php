@@ -1,8 +1,9 @@
 <?php
 $config = $currency->get_config();
+ksort($config);
 ?>
 <h1>Config</h1>
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <thead>
     <tr>
       <th>ISO4217</th>
@@ -17,21 +18,16 @@ $config = $currency->get_config();
   </thead>
   <tbody>
       <?php foreach ($config as $currency => $data) : ?>
-          <?php $count = 0; ?>
           <?php foreach ($data['language'] as $language => $config) : ?>
           <tr>
-              <?php if (0 == $count) : ?>
-                  <?php $row_span = count($data['language']); ?>
-                <td rowspan="<?= $row_span ?>"><?= $currency ?></td>
-                <td rowspan="<?= $row_span ?>"><?= $data['currency'] ?></td>
-                <td rowspan="<?= $row_span ?>"><?= $data['default_language'] ?></td>
-              <?php endif; ?>
+            <td><?= $currency ?></td>
+            <td><?= $data['currency'] ?></td>
+            <td><?= $data['default_language'] ?></td>
             <td><?= $language ?></td>
             <td><?= $config['ts'] ?></td>
             <td><?= $config['dp'] ?></td>
             <td><?= $config['c'] ?></td>
             <td><?= $config['f'] ?></td>
-              <?php $count++; ?>
           </tr>
           <?php endforeach; ?>
       <?php endforeach; ?>

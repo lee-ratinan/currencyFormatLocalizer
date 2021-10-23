@@ -231,7 +231,6 @@
                 }
             },
             // SOUTH ASIA
-            'INR': {},
             // MIDDLE EAST
             // EUROPE
             'CHF': {
@@ -429,29 +428,24 @@
             let currency = $(this).attr('data-currency') || settings.currency_code,
                 language = $(this).attr('data-language') || settings.language,
                 amount = $(this).attr('data-amount');
-            if ( ! isNaN(amount) && ! isNaN(parseFloat(amount)))
-            {
-                if (undefined !== currencies[currency])
-                {
+            if (!isNaN(amount) && !isNaN(parseFloat(amount))) {
+                if (undefined !== currencies[currency]) {
                     let prefix = '';
                     amount = parseFloat(amount);
-                    if (0 > amount)
-                    {
+                    if (0 > amount) {
                         amount = Math.abs(amount);
                         prefix = '- ';
                     }
-                    if ('ISO' === language)
-                    {
-                        $(this).html(currency+' '+number_format(amount, 2, '.', ','));
+                    if ('ISO' === language) {
+                        $(this).html(currency + ' ' + number_format(amount, 2, '.', ','));
                     }
-                    if (undefined === currencies[currency]['language'][language])
-                    {
+                    if (undefined === currencies[currency]['language'][language]) {
                         language = currencies[currency].default_language;
                     }
                     let config = currencies[currency]['language'][language],
                         format = config.f,
                         str_amount = number_format(amount, config.c, config.dp, config.ts);
-                    $(this).html(prefix+format.replace('###', str_amount));
+                    $(this).html(prefix + format.replace('###', str_amount));
                 } else {
                     $(this).html(error_messages['E002']);
                 }
