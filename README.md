@@ -17,9 +17,9 @@ By just constructing `CurrencyFormatLocalizer()`, you can simply call `format()`
 
 ##### Parameters
 
-  * $currency_code - ISO4217 currency code
-  * $language - ISO639 2-digit language code
-  * $amount - The amount of money to be formatted in floating-point number or integer
+  * `$currency_code` - ISO4217 currency code
+  * `$language` - ISO639 2-digit language code
+  * `$amount` - The amount of money to be formatted in floating-point number or integer
 
 ##### Example
 
