@@ -4,13 +4,12 @@
  * https://github.com/lee-ratinan/currencyFormatLocalizer
  */
 (function ($) {
-    $.fn.currencyFormatLocalizer = function (options) {
+    $.fn.CurrencyFormatLocalizer = function (options) {
         let currencies = {
             // ASEAN
             'BND': {
                 'default_language': 'MS',
                 'currency': 'Brunei dollar',
-                'countries': ['BN'],
                 'language': {
                     'MS': {
                         'ts': ',',
@@ -23,7 +22,6 @@
             'IDR': {
                 'default_language': 'ID',
                 'currency': 'Indonesian rupiah',
-                'countries': ['ID'],
                 'language': {
                     'ID': {
                         'ts': '.',
@@ -36,7 +34,6 @@
             'KHR': {
                 'default_language': 'KM',
                 'currency': 'Cambodian riel',
-                'countries': ['KH'],
                 'language': {
                     'KM': {
                         'ts': ',',
@@ -49,7 +46,6 @@
             'LAK': {
                 'default_language': 'LO',
                 'currency': 'Lao kip',
-                'countries': ['LA'],
                 'language': {
                     'LO': {
                         'ts': ',',
@@ -62,7 +58,6 @@
             'MMK': {
                 'default_language': 'MY',
                 'currency': 'Myanmar kyat',
-                'countries': ['MM'],
                 'language': {
                     'MY': {
                         'ts': ',',
@@ -75,7 +70,6 @@
             'MYR': {
                 'default_language': 'MS',
                 'currency': 'Malaysian ringgit',
-                'countries': ['MY'],
                 'language': {
                     'MS': {
                         'ts': ',',
@@ -88,7 +82,6 @@
             'PHP': {
                 'default_language': 'EN',
                 'currency': 'Philippine peso',
-                'countries': ['PH'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -101,7 +94,6 @@
             'SGD': {
                 'default_language': 'EN',
                 'currency': 'Singapore dollar',
-                'countries': ['SG'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -120,7 +112,6 @@
             'THB': {
                 'default_language': 'EN',
                 'currency': 'Thai baht',
-                'countries': ['TH'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -139,7 +130,6 @@
             'VND': {
                 'default_language': 'VI',
                 'currency': 'Vietnamese đồng',
-                'countries': ['VN'],
                 'language': {
                     'VI': {
                         'ts': '.',
@@ -153,7 +143,6 @@
             'CNY': {
                 'default_language': 'ZH',
                 'currency': 'Renminbi',
-                'countries': ['CN'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -172,7 +161,6 @@
             'HKD': {
                 'default_language': 'EN',
                 'currency': 'Hong Kong dollar',
-                'countries': ['HK'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -191,7 +179,6 @@
             'JPY': {
                 'default_language': 'JA',
                 'currency': 'Japanese yen',
-                'countries': ['JP'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -210,7 +197,6 @@
             'KRW': {
                 'default_language': 'KO',
                 'currency': 'Korean won',
-                'countries': ['KR'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -229,7 +215,6 @@
             'TWD': {
                 'default_language': 'ZH',
                 'currency': 'New Taiwan dollar',
-                'countries': ['TW'],
                 'language': {
                     'EN': {
                         'ts': ',',
@@ -246,13 +231,11 @@
                 }
             },
             // SOUTH ASIA
-            'INR': {},
             // MIDDLE EAST
             // EUROPE
             'CHF': {
                 'default_language': 'EN',
                 'currency': 'Swiss franc',
-                'countries': ['CH'],
                 'language': {
                     'EN': {
                         'ts': "’",
@@ -265,7 +248,6 @@
             'EUR': {
                 'default_language': 'DE',
                 'currency': 'Euro',
-                'countries': ['PT', 'ES', 'FR', 'DE', 'IT'],
                 'language': {
                     'DE': {
                         'ts': ".",
@@ -284,7 +266,6 @@
             'GBP': {
                 'default_language': 'EN',
                 'currency': 'Pound sterling',
-                'countries': ['GB'],
                 'language': {
                     'EN': {
                         'ts': ",",
@@ -298,7 +279,6 @@
             'CAD': {
                 'default_language': 'EN',
                 'currency': 'Canadian dollar',
-                'countries': ['CA'],
                 'language': {
                     'EN': {
                         'ts': ",",
@@ -317,7 +297,6 @@
             'USD': {
                 'default_language': 'EN',
                 'currency': 'United States dollar',
-                'countries': ['US'],
                 'language': {
                     'EN': {
                         'ts': ",",
@@ -332,7 +311,6 @@
             'AUD': {
                 'default_language': 'EN',
                 'currency': 'Australian dollar',
-                'countries': ['AU'],
                 'language': {
                     'EN': {
                         'ts': ",",
@@ -345,7 +323,6 @@
             'NZD': {
                 'default_language': 'EN',
                 'currency': 'New Zealand dollar',
-                'countries': ['NZ'],
                 'language': {
                     'EN': {
                         'ts': ",",
@@ -358,7 +335,7 @@
         };
         let error_messages = {
             'E001': '[INVALID AMOUNT]',
-            'E002': '[INVALID CURRENCY]'
+            'E002': '[CURRENCY NOT SUPPORTED]'
         };
         let settings = $.extend({
             currency_code: '',
@@ -451,29 +428,24 @@
             let currency = $(this).attr('data-currency') || settings.currency_code,
                 language = $(this).attr('data-language') || settings.language,
                 amount = $(this).attr('data-amount');
-            if ( ! isNaN(amount) && ! isNaN(parseFloat(amount)))
-            {
-                if (undefined !== currencies[currency])
-                {
+            if (!isNaN(amount) && !isNaN(parseFloat(amount))) {
+                if (undefined !== currencies[currency]) {
                     let prefix = '';
                     amount = parseFloat(amount);
-                    if (0 > amount)
-                    {
+                    if (0 > amount) {
                         amount = Math.abs(amount);
                         prefix = '- ';
                     }
-                    if ('ISO' === language)
-                    {
-                        $(this).html(currency+' '+number_format(amount, 2, '.', ','));
+                    if ('ISO' === language) {
+                        $(this).html(currency + ' ' + number_format(amount, 2, '.', ','));
                     }
-                    if (undefined === currencies[currency]['language'][language])
-                    {
+                    if (undefined === currencies[currency]['language'][language]) {
                         language = currencies[currency].default_language;
                     }
                     let config = currencies[currency]['language'][language],
                         format = config.f,
                         str_amount = number_format(amount, config.c, config.dp, config.ts);
-                    $(this).html(prefix+format.replace('###', str_amount));
+                    $(this).html(prefix + format.replace('###', str_amount));
                 } else {
                     $(this).html(error_messages['E002']);
                 }
@@ -483,9 +455,3 @@
         });
     };
 }(jQuery));
-
-
-
-
-
-
