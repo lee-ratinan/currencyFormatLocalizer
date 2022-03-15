@@ -70,25 +70,29 @@ Currently, the library supports the following currencies and locales:
 
 | Currency | Locales |
 |----------|---------|
+| AUD | EN           |
+| BDT | EN           |
 | BND | MS           |
+| CAD | EN, FR       |
+| CHF | EN           |
+| CNY | ZH, EN       |
+| EUR | DE, FR       |
+| GBP | EN           |
+| HKD | EN, ZH       |
 | IDR | ID           |
+| INR | EN           |
+| JPY | JA, EN       |
 | KHR | KM           |
+| KRW | KO, EN       |
 | LAK | LO           |
+| LKR | EN, SI, TA   |
 | MMK | MY           |
+| MVR | EN, DV       |
 | MYR | MS           |
+| NZD | EN           |
 | PHP | EN           |
 | SGD | EN, ZH       |
 | THB | EN, TH       |
-| VND | VI           |
-| CNY | ZH, EN       |
-| HKD | EN, ZH       |
-| JPY | JA, EN       |
-| KRW | KO, EN       |
 | TWD | ZH, EN       |
-| CHF | EN           |
-| EUR | DE, FR       |
-| GBP | EN           |
-| CAD | EN, FR       |
 | USD | EN           |
-| AUD | EN           |
-| NZD | EN           |
+| VND | VI           |

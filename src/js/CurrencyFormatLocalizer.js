@@ -231,6 +231,78 @@
                 }
             },
             // SOUTH ASIA
+            'BDT': {
+                'default_language': 'EN',
+                'currency': 'Bangladeshi taka',
+                'language': {
+                    'EN': {
+                        'ts': ',',
+                        'dp': '.',
+                        'c': 2,
+                        'f': '৳###'
+                    }
+                }
+            }, 
+            'INR': {
+                'default_language': 'EN',
+                'currency': 'Indian rupee',
+                'language': {
+
+                    'EN':
+                        {
+                            'ts':
+                                ',',
+                            'dp':
+                                '.',
+                            'c':
+                                2,
+                            'f':
+                                '₹###'
+                        }
+                }
+            },
+            'LKR': {
+                'default_language': 'EN',
+                'currency': 'Sri Lankan rupee',
+                'language': {
+                    'EN': {
+                            'ts': ',',
+                            'dp': '.',
+                            'c': 2,
+                            'f': '₨ ###'
+                    },
+                    'SI': {
+                            'ts': ',',
+                            'dp': '.',
+                            'c': 2,
+                            'f': 'රු ###'
+                    },
+                    'TA': {
+                            'ts': ',',
+                            'dp': '.',
+                            'c': 2,
+                            'f': 'ரூ ###'
+                    }
+                }
+            },
+            'MVR': {
+                'default_language': 'EN',
+                'currency': 'Maldivian rufiyaa',
+                'language': {
+                    'EN': {
+                        'ts': ',',
+                        'dp': '.',
+                        'c': 2,
+                        'f': 'Rf ###'
+                    },
+                    'DV': {
+                        'ts': ',',
+                        'dp': '.',
+                        'c': 2,
+                        'f': '###ރ.'
+                    }
+                }
+            },
             // MIDDLE EAST
             // EUROPE
             'CHF': {
